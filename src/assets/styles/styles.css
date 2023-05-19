@@ -1,0 +1,70 @@
+body {
+    margin: 0
+}
+
+#app {
+    padding: 30px;
+    margin: 0 !important;
+}
+
+.card {
+    text-align: right;
+}
+
+
+.btn-primary {
+    min-width: 100px;
+    height: 35px;
+    background: #3C81FC;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.svg-button {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    border: 0;
+    background: none;
+}
+.column-content {
+    height: 45px;
+    border-top: 1px solid #E7EAF3;
+    border-bottom: 1px solid #E7EAF3;
+    display: flex;
+    align-items: center;
+    border-left: 0;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: #4E5964;
+}
+
+.p-datatable .p-datatable-tbody > tr > td:last-child {
+    padding-right: 0;
+}
+.p-datatable .p-datatable-tbody > tr > td:first-child {
+    padding-left: 0;
+}
+
+.p-datatable .p-datatable-tbody > tr > td:last-child .column-content {
+    border-right: 1px solid #E7EAF3;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.p-datatable .p-datatable-tbody > tr > td:first-child .column-content {
+    border-left: 1px solid #E7EAF3;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    border: 0;
+    padding: 0.2rem 0;
+}

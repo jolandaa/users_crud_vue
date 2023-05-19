@@ -11,6 +11,7 @@ export default {
     UsersTable
   }
 }
+
 </script>
 
 <style>
