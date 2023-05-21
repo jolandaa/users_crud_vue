@@ -40,7 +40,7 @@
             <b-button @click="editUserModal = true;openEditModal(rowData)" variant="primary" class="svg-button">
               <span v-html="editIcon"></span>
             </b-button>
-            <b-button variant="primary" class="svg-button">
+            <b-button variant="primary" class="svg-button" @click="confirm2()">
               <span v-html="deleteIcon"></span>
             </b-button>
           </div>
@@ -65,7 +65,7 @@
 import { UsersService } from '@/services/UsersService';
 import CreateUser from './CreateUser.vue'
 import EditUser from './EditUser.vue'
-// import { useConfirm } from "primevue/useconfirm";
+// import { useConfirm } from 'primevue/useconfirm';
 // import { useToast } from "primevue/usetoast";
 //
 // const confirm = useConfirm();
@@ -73,6 +73,7 @@ import EditUser from './EditUser.vue'
 
 
 export default {
+
 
   name: "UsersTable",
   data() {
@@ -116,12 +117,13 @@ export default {
       //   icon: 'pi pi-info-circle',
       //   acceptClass: 'p-button-danger',
       //   accept: () => {
-      //     toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
+      //     // toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
       //   },
       //   reject: () => {
-      //     toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+      //     // toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
       //   }
       // });
+
     }
   },
 
