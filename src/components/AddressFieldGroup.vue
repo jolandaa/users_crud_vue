@@ -76,11 +76,6 @@ export default {
     return {
       useGoogleLocations: !!(this.latitude && this.longitude)
     }
-  },
-  setup() {
-    // const streetRef = ref()
-    // const autocomplete = new google.maps.places.Autocomplete(
-    //     document.getElementById("autocomplete"),);
   }
 }
 </script>
