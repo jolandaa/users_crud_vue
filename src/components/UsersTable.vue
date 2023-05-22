@@ -40,7 +40,7 @@
             <b-button @click="editUserModal = true;openEditModal(rowData)" variant="primary" class="svg-button">
               <span v-html="editIcon"></span>
             </b-button>
-            <b-button variant="primary" class="svg-button" @click="confirm2()">
+            <b-button variant="primary" class="svg-button" @click="deleteConfirmation()">
               <span v-html="deleteIcon"></span>
             </b-button>
           </div>
@@ -65,12 +65,6 @@
 import { UsersService } from '@/services/UsersService';
 import CreateUser from './CreateUser.vue'
 import EditUser from './EditUser.vue'
-// import { useConfirm } from 'primevue/useconfirm';
-// import { useToast } from "primevue/usetoast";
-//
-// const confirm = useConfirm();
-// const toast = useToast();
-
 
 export default {
 
@@ -109,25 +103,34 @@ export default {
     },
     openEditModal(data) {
       this.selectedUser = data.data;
-    },
-    confirm2() {
-      // confirm.require({
-      //   message: 'Do you want to delete this record?',
-      //   header: 'Delete Confirmation',
-      //   icon: 'pi pi-info-circle',
-      //   acceptClass: 'p-button-danger',
-      //   accept: () => {
-      //     // toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted', life: 3000 });
-      //   },
-      //   reject: () => {
-      //     // toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
-      //   }
-      // });
-
     }
   },
 
 }
+</script>
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const deleteConfirmation = () => {
+  confirm.require({
+    message: 'Are you sure you want to proceed?',
+    header: 'Confirmation',
+    icon: 'pi pi-exclamation-triangle',
+    accept: () => {
+      toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+    },
+    reject: () => {
+      toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+    }
+  });
+};
+
+
+
 </script>
 
 <style scoped>
