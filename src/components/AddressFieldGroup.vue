@@ -42,13 +42,6 @@
 
 <script>
 export default {
-  mounted() {
-    const script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDsA7zq7o7wJLYTqmiOxec8vYnrc1oC7IM&libraries=places';
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-  },
   name: "AddressFieldGroup",
   props: {
     street: {
