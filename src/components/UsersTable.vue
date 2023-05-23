@@ -40,7 +40,7 @@
             <b-button @click="editUserModal = true;openEditModal(rowData)" variant="primary" class="svg-button">
               <span v-html="editIcon"></span>
             </b-button>
-            <b-button variant="primary" class="svg-button" @click="deleteConfirmation()">
+            <b-button variant="primary" class="svg-button" @click="deleteConfirmation(rowData.data.id)">
               <span v-html="deleteIcon"></span>
             </b-button>
           </div>
@@ -115,13 +115,14 @@ import { useToast } from "primevue/usetoast";
 const confirm = useConfirm();
 const toast = useToast();
 
-const deleteConfirmation = () => {
+const deleteConfirmation = (id) => {
+  console.log(id)
   confirm.require({
-    message: 'Are you sure you want to proceed?',
+    message: 'Are you sure you want to delete this user?',
     header: 'Confirmation',
     icon: 'pi pi-exclamation-triangle',
     accept: () => {
-      toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+      deleteUser(id);
     },
     reject: () => {
       toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
@@ -129,7 +130,13 @@ const deleteConfirmation = () => {
   });
 };
 
-
+const deleteUser = (id) => {
+  UsersService.deleteUser(id).then(res => {
+    toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have deleted this user', life: 3000 });
+  }).catch(err => {
+    toast.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong', life: 3000 });
+  })
+}
 
 </script>
 
