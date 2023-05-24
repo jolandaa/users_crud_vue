@@ -1,4 +1,5 @@
 <template>
+  <!-- Use Toast and Confirm Dialog to show them when are called to show -->
   <Toast />
   <ConfirmDialog></ConfirmDialog>
 
@@ -51,10 +52,12 @@
     </DataTable>
 
 
+    <!-- Dialog of create User -->
     <Dialog v-model:visible="createUserModal" modal header="New User  Info" :style="{ width: '50vw' }" :draggable="false">
       <CreateUser @save-event="(data) => createUserModal = data"/>
     </Dialog>
 
+    <!-- Dialog of edit User -->
     <Dialog v-model:visible="editUserModal" modal header="Edit User  Info" :style="{ width: '50vw' }" :draggable="false">
       <EditUser :userData="selectedUser" @save-event="(data) => editUserModal = data"/>
     </Dialog>
@@ -71,6 +74,7 @@ export default {
 
   name: "UsersTable",
   data() {
+    // declare variables
     return {
       usersList: [],
       createUserModal: false,
@@ -90,6 +94,7 @@ export default {
     CreateUser,
     EditUser
   },
+  // when component is opened it calls getUsersList method
   async created() {
     await this.getUsersList();
   },
@@ -115,21 +120,25 @@ import { useToast } from "primevue/usetoast";
 const confirm = useConfirm();
 const toast = useToast();
 
+// delete user method
 const deleteConfirmation = (id) => {
-  console.log(id)
+  // open confirm modal before deleting user
   confirm.require({
     message: 'Are you sure you want to delete this user?',
     header: 'Confirmation',
     icon: 'pi pi-exclamation-triangle',
     accept: () => {
+      // accept confirmation
       deleteUser(id);
     },
     reject: () => {
+      // reject confirmation
       toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
     }
   });
 };
 
+// delete user method
 const deleteUser = (id) => {
   UsersService.deleteUser(id).then(res => {
     toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have deleted this user', life: 3000 });
