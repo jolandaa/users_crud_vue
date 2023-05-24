@@ -21,6 +21,7 @@ body {
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
+    margin-bottom: 10px;
 }
 
 .svg-button {
@@ -32,6 +33,15 @@ body {
     border: 0;
     background: none;
 }
+
+.p-datatable .p-datatable-thead > tr > th:last-child {
+    padding-right: 20px;
+}
+
+.p-datatable .p-datatable-thead > tr > th:last-child .p-column-header-content {
+    justify-content: end;
+}
+
 .column-content {
     height: 45px;
     border-top: 1px solid #E7EAF3;
@@ -57,6 +67,8 @@ body {
     border-right: 1px solid #E7EAF3;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+    justify-content: end;
+    padding-right: 12px;
 }
 .p-datatable .p-datatable-tbody > tr > td:first-child .column-content {
     border-left: 1px solid #E7EAF3;
@@ -68,6 +80,14 @@ body {
     border: 0;
     padding: 0.2rem 0;
 }
+
+.p-datatable .p-column-header-content {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #4E5964;
+}
+
 .p-inputtext {
     background: #FFFFFF;
     border: 1px solid #E7EAF3;
